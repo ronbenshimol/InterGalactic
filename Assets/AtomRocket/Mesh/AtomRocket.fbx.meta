@@ -1,31 +1,75 @@
 fileFormatVersion: 2
-guid: 9acb430b5960bb84f8d00a95fab331ef
+guid: add1d5ea65b47174dbb5a9ddb4535708
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: polySurface28
-    100002: pPlane1
-    100004: //RootNode
-    400000: polySurface28
-    400002: pPlane1
-    400004: //RootNode
-    2100000: aiStandardSurface3SG
-    2100002: aiStandardSurface9SG
-    2100004: aiStandardSurface7SG
-    2100006: aiStandardSurface4SG
-    2100008: aiStandardSurface6SG
-    2100010: aiStandardSurface8SG
-    2100012: aiStandardSurface1SG
-    2100014: aiStandardSurface2SG
-    2100016: initialShadingGroup
-    2100018: aiStandardSurface5SG
-    2300000: polySurface28
-    2300002: pPlane1
-    3300000: polySurface28
-    3300002: pPlane1
-    4300000: polySurface28
-    4300002: pPlane1
-  externalObjects: {}
+    100000: Arm
+    100002: boddy
+    100004: boddy.belt
+    100006: fire-nozzle
+    100008: head
+    100010: nute
+    100012: //RootNode
+    100014: win-frem
+    100016: win.001
+    400000: Arm
+    400002: boddy
+    400004: boddy.belt
+    400006: fire-nozzle
+    400008: head
+    400010: nute
+    400012: //RootNode
+    400014: win-frem
+    400016: win.001
+    2100000: Material
+    2100002: Material.002
+    2100004: Material.001
+    2100006: Material.003
+    2300000: Arm
+    2300002: boddy
+    2300004: boddy.belt
+    2300006: fire-nozzle
+    2300008: head
+    2300010: nute
+    2300012: win-frem
+    2300014: win.001
+    3300000: Arm
+    3300002: boddy
+    3300004: boddy.belt
+    3300006: fire-nozzle
+    3300008: head
+    3300010: nute
+    3300012: win-frem
+    3300014: win.001
+    4300000: boddy
+    4300002: head
+    4300004: fire-nozzle
+    4300006: Arm
+    4300008: win.001
+    4300010: win-frem
+    4300012: boddy.belt
+    4300014: nute
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 89b9cecd79fe7fd418c284523e46973a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: e0b1763afce38dc4fba2cec27d235a3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 1f2f39ae9facbea43ac7f6da5b21a916, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: d65d5f6454ecf7942ba15fc30b9025cf, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -57,7 +101,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 3
     addColliders: 0
     useSRGBMaterialColor: 1
     importVisibility: 1
