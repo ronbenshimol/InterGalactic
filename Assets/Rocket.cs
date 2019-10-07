@@ -17,10 +17,24 @@ public class Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        processInput();        
+        thrust();
+        rotate();        
     }
 
-    void processInput()
+    void rotate()
+    {
+        
+        rigidbody.freezeRotation = true; // take manual control over rotation
+
+        if (Input.GetKey(KeyCode.A)){
+            transform.Rotate(Vector3.forward);
+        }
+        else if(Input.GetKey(KeyCode.D)){
+            transform.Rotate(-Vector3.forward);
+        }
+        rigidbody.freezeRotation = false; // resume physics control over toration
+    }
+    void thrust()
     {
         if (Input.GetKey(KeyCode.Space)) // thrust while rotating
         {
@@ -33,12 +47,6 @@ public class Rocket : MonoBehaviour
         else
         {
             audioSource.Stop();
-        }
-        if (Input.GetKey(KeyCode.A)){
-            transform.Rotate(Vector3.forward);
-        }
-        else if(Input.GetKey(KeyCode.D)){
-            transform.Rotate(-Vector3.forward);
         }
     }
 }
