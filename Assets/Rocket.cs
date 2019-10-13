@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,6 +23,8 @@ public class Rocket : MonoBehaviour
     enum State { Alive, Dying, Transcending }
     State state = State.Alive;
 
+    [SerializeField] bool collisionsDisabled = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,19 @@ public class Rocket : MonoBehaviour
         {
             respondToThrustInput();
             respondToRotateInput();
+        }
+
+        if(Debug.isDebugBuild){
+            RespondToDebugKeys();
+        }
+    }
+
+    private void RespondToDebugKeys()
+    {
+        if(Input.GetKeyDown(KeyCode.L)){
+            LoadNextLevel();
+        } else if(Input.GetKeyDown(KeyCode.C)){
+            collisionsDisabled = !collisionsDisabled;
         }
     }
 
@@ -83,7 +99,7 @@ public class Rocket : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (state != State.Alive)
+        if (state != State.Alive || collisionsDisabled)
         {
             return;
         }
