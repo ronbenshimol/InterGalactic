@@ -136,7 +136,10 @@ private void StartDeathSequence()
     }
     private void LoadNextLevel()
     {
-        SceneManager.LoadScene(1); // TODO: allow for more than 2 levels
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        SceneManager.LoadScene(nextSceneIndex % SceneManager.sceneCountInBuildSettings);
+        
     }
 
     private void LoadFirstLevel()
