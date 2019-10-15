@@ -20,8 +20,7 @@ public class Rocket : MonoBehaviour
     [SerializeField] ParticleSystem deathParticles;
     
 
-    enum State { Alive, Dying, Transcending }
-    State state = State.Alive;
+    bool isTransitioning = false;
 
     [SerializeField] bool collisionsDisabled = false;
 
@@ -36,7 +35,7 @@ public class Rocket : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (state == State.Alive)
+        if (!isTransitioning)
         {
             respondToThrustInput();
             respondToRotateInput();
@@ -58,20 +57,20 @@ public class Rocket : MonoBehaviour
 
     void respondToRotateInput()
     {
-
-        rigidbody.freezeRotation = true; // take manual control over rotation
-
-
-        float rotationThisFrame = rcsThrust * Time.deltaTime;
         if (Input.GetKey(KeyCode.A))
         {
-
-            transform.Rotate(Vector3.forward * rotationThisFrame);
+            RotateManually(rcsThrust * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Rotate(-Vector3.forward * rotationThisFrame);
+           RotateManually(-rcsThrust * Time.deltaTime);
         }
+       
+    }
+    private void RotateManually(float rotationThisFrame)
+    {
+        rigidbody.freezeRotation = true; // take manual control over rotation
+        transform.Rotate(Vector3.forward * rotationThisFrame);
         rigidbody.freezeRotation = false; // resume physics control over toration
     }
     void respondToThrustInput()
@@ -82,9 +81,14 @@ public class Rocket : MonoBehaviour
         }
         else
         {
-            audioSource.Stop();
-            mainEngineParticles.Stop();
+            StopApplyingThrust();
         }
+    }
+
+    private void StopApplyingThrust()
+    {
+        audioSource.Stop();
+        mainEngineParticles.Stop();
     }
 
     private void applyThrust()
@@ -99,7 +103,7 @@ public class Rocket : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (state != State.Alive || collisionsDisabled)
+        if (isTransitioning || collisionsDisabled)
         {
             return;
         }
@@ -120,7 +124,7 @@ public class Rocket : MonoBehaviour
 
     private void StartSuccessSequence()
     {
-        state = State.Transcending;
+        isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(success);
         successParticles.Play();
@@ -128,7 +132,7 @@ public class Rocket : MonoBehaviour
     }
 private void StartDeathSequence()
     {
-        state = State.Dying;
+        isTransitioning = true;
         audioSource.Stop();
         audioSource.PlayOneShot(death);
         deathParticles.Play();
