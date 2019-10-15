@@ -39,11 +39,21 @@ public class Rocket : MonoBehaviour
         {
             respondToThrustInput();
             respondToRotateInput();
+            RespondToRestartInput();
+            
         }
 
         if(Debug.isDebugBuild){
             RespondToDebugKeys();
         }
+    }
+    private void RespondToRestartInput()
+    {
+       if (Input.GetKey(KeyCode.R))
+        {
+            Invoke("LoadFirstLevel", levelLoadDelay); 
+        }
+        //LoadFirstLevel
     }
 
     private void RespondToDebugKeys()
@@ -57,11 +67,11 @@ public class Rocket : MonoBehaviour
 
     void respondToRotateInput()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             RotateManually(rcsThrust * Time.deltaTime);
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
            RotateManually(-rcsThrust * Time.deltaTime);
         }
