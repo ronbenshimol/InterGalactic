@@ -146,7 +146,7 @@ private void StartDeathSequence()
         audioSource.Stop();
         audioSource.PlayOneShot(death);
         deathParticles.Play();
-        if(States.Lives > 1) // there are lives remaining
+        if(States.Lives > 0) // there are lives remaining
         {
             States.Lives--;
             Invoke("LoadCurrentLevel", levelLoadDelay);
