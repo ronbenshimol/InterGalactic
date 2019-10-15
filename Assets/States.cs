@@ -7,8 +7,7 @@ using UnityEditor;
 public static class States
 {
     public static int InitialLives = 2;
-    public static int Lives
-    {get;set;}
+    public static int Lives {get;set;}
     static States(){
         Lives = InitialLives;
     }
