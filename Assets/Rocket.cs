@@ -146,7 +146,21 @@ private void StartDeathSequence()
         audioSource.Stop();
         audioSource.PlayOneShot(death);
         deathParticles.Play();
-        Invoke("LoadFirstLevel", levelLoadDelay);
+        if(States.Lives > 1) // there are lives remaining
+        {
+            States.Lives--;
+            Invoke("LoadCurrentLevel", levelLoadDelay);
+        }
+        else 
+        {
+            States.Lives = States.InitialLives;
+            Invoke("LoadFirstLevel", levelLoadDelay);
+        }
+        
+    }
+    private void LoadCurrentLevel()
+    {
+     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void LoadNextLevel()
     {
