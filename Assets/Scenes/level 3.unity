@@ -1011,6 +1011,11 @@ PrefabInstance:
       propertyPath: period
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5821350720422144779, guid: a8127b8d544b89f4ca2332ccd4a8c341,
+        type: 3}
+      propertyPath: movementVector.z
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5455778336791298288, guid: a8127b8d544b89f4ca2332ccd4a8c341,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2916,7 +2921,7 @@ PrefabInstance:
     - target: {fileID: 5821350720422144779, guid: a8127b8d544b89f4ca2332ccd4a8c341,
         type: 3}
       propertyPath: movementVector.z
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8127b8d544b89f4ca2332ccd4a8c341, type: 3}

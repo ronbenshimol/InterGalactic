@@ -736,7 +736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rcsThrust: 200
-  mainThrust: 1500
+  mainThrust: 1750
   levelLoadDelay: 2
   mainEngine: {fileID: 8300000, guid: 0ae698ed256769a4ba89cdaa7a4ddbe7, type: 3}
   success: {fileID: 8300000, guid: cde45982b599d9c4b9c10ed6420a42f9, type: 3}
@@ -744,6 +744,7 @@ MonoBehaviour:
   mainEngineParticles: {fileID: 8575773663602689939}
   successParticles: {fileID: 1034750583778634686}
   deathParticles: {fileID: 4032705610978148296}
+  collisionsDisabled: 0
 --- !u!1 &8786670338848979123
 GameObject:
   m_ObjectHideFlags: 0
