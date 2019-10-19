@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 
-[InitializeOnLoad]
+//[InitializeOnLoad]
 public static class States
 {
     public static int InitialLives = 9;
